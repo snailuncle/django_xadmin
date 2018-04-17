@@ -1,0 +1,68 @@
+pip install virtualenv
+virtualenv testvir  
+explorer path
+pip install virtualenvwrapper-win
+mkvirtualenv testvir2
+
+$ mkvirtualenv testvir2
+ C:\Users\Administrator\Envs is not a directory, creating
+Using base prefix 'd:\\anaconda'
+New python executable in C:\Users\Administrator\Envs\testvir2\Scripts\python.exe
+b'C:\\Users\\Administrator\\Envs\\testvir2'
+Installing setuptools, pip, wheel...done.
+
+workon显示虚拟环境列表
+workon testvir2
+
+win7快速打开  服务    在键盘上按“WIN+R”快捷键，打开运行界面，输入“services.msc”指令
+
+django新建项    django-admin startproject first_django
+django新建app    python manage.py startapp message
+****************************************************************************************************
+虚拟环境启动目录    D:\django_study\fourth_django\testvir\Scripts
+项目目录           D:\django_xadmin\first_django
+***************************************************************************************************
+进入MySQL的bin目录  在命令行窗口输入：mysqld --install，回车，提示：Service successfully installed，代表注册服务成功。
+
+忘记mysql密码
+1. 停止msql  net stop mysql
+
+2.找到MySQL的配置文件my.ini，win7的话在C:\ProgramData\MySQL\MySQL Server 5.7目录下，为隐藏目录。打开my.ini，在[mysqld]下面加上 skip-grant-tables
+
+    [mysqld]  
+    skip-grant-tables  
+
+3.保存修改后的my.ini，然后启动MySQL服务，直接打mysql并回车，然后就可以直接登录数据库了。
+                    net start mysql         
+
+4.登录数据库后，修改密码。在5.7版本中，user表中已经不存在password字段，取而代之的是authentication_string。所以修改密码如下：
+    mysql> update mysql.user set authentication_string=password('root') where user='root';                  
+5.刷新权限   FLUSH PRIVILEGES;  
+
+6.退出MySQL     QUIT;  
+
+7.将my.ini中的skip-grant-tables删掉，重新启动数据库，然后就可以用修改后的密码登录了。
+
+mysql基本命令
+查看数据库有哪些数据库  show databases;
+
+输入"use test"切换到test库，输入"show tables"查看test下的表
+
+输入"show global variables like 'port'; ",查看mysql端口号
+
+创建数据库  create database guest character set utf8;
+
+
+安装python -m pip install PyMySQL
+
+安装出问题pip install MySQL-python
+blog.csdn.net/u012882134/article/details/51934165
+
+1.在http://www.lfd.uci.edu/~gohlke/pythonlibs/#mysql-python下载对应的包版本，
+MySQL-python只支持到2.7 python3使用mysqlclient
+              python3.6         32位
+mysqlclient-1.3.12-cp36-cp36m-win32.whl
+
+然后在命令行执行pip install mysqlclient-1.3.12-cp36-cp36m-win32.whl
+
+

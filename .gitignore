@@ -1,0 +1,9 @@
+*.txt
+*.ini
+*.mp4
+*.ts
+*.jpg
+testvir/
+!virtualenv.txt
+*.pyc
+
